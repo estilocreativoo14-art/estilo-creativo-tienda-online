@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estilo Creativo | Tienda Online de Alta Conversión</title>
+  <!-- Google Fonts para excelente legibilidad -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* VARIABLES DE MARCA: Negro & Lila (Sustentado por el perfil del usuario) */
+    :root {
+      --bg-dark: #09080d;
+      --bg-card: #12101a;
+      --primary: #9d4edd;
+      --primary-hover: #c77dff;
+      --accent: #e0aaff;
+      --text-main: #f3f0f7;
+      --text-muted: #9e9aa8;
+      --border-color: #241e36;
+      --success: #39db80;
+      --shadow-color: rgba(157, 78, 221, 0.15);
+      --font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* RESET & ESTILOS BASE */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* CONTENEDOR FLUIDO */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* CABECERA (HEADER) - Rediseñada para Conversión sin distractores */
+    .header-nav {
+      border-bottom: 1px solid var(--border-color);
+      background-color: rgba(9, 8, 13, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-cart-trigger {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cart-trigger:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--shadow-color);
+    }
+
+    .cart-count-badge {
+      background-color: var(--primary);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 20px;
+      display: inline-block;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* HERO SECTION (Sección de bienvenida llamativa de alto impacto) */
+    .hero {
+      padding: 80px 0 60px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(157, 78, 221, 0.15) 0%, rgba(9, 8, 13, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 18px;
+      max-width: 650px;
+      margin: 0 auto 32px auto;
+    }
+
+    /* GRID DE PRODUCTOS ESTRELLA (Configurados con los productos reales) */
+    .products-section {
+      padding: 40px 0 80px 0;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title span {
+      color: var(--primary);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(157, 78, 221, 0.08);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(157, 78, 221, 0.15);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+
+    .product-details {
+      margin-top: 12px;
+    }
+
+    .product-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .product-description {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      min-height: 42px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+    }
+
+    .product-price {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .product-price span {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    .btn-add {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      font-size: 13px;
+    }
+
+    .btn-add:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-add:active {
+      transform: scale(0.95);
+    }
+
+    /* UBICACIÓN & INFORMACIÓN DE CONTACTO */
+    .info-section {
+      background-color: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 60px 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .info-content h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .info-content p {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .info-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .info-icon {
+      background: rgba(157, 78, 221, 0.1);
+      border: 1px solid rgba(157, 78, 221, 0.2);
+      border-radius: 12px;
+      padding: 12px;
+      color: var(--accent);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .info-text h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .info-text p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .map-container {
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      overflow: hidden;
+      height: 350px;
+      position: relative;
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      background-color: #161324;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .btn-map {
+      background-color: #1e1a30;
+      color: var(--text-main);
+      text-decoration: none;
+      border: 1px solid var(--border-color);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 16px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-map:hover {
+      border-color: var(--primary);
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* CARRITO LATERAL (SHOPPING DRAWER) */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 420px;
+      height: 100%;
+      background-color: var(--bg-card);
+      border-left: 1px solid var(--border-color);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.active {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cart-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .cart-close:hover {
+      color: var(--text-main);
+    }
+
+    .cart-items-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .cart-empty-state {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 40px 0;
+    }
+
+    .cart-empty-state svg {
+      color: var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 16px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cart-item-price {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .cart-item-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .quantity-btn {
+      background: none;
+      border: none;
+      color: var(--text-main);
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .quantity-btn:hover {
+      background-color: var(--border-color);
+    }
+
+    .quantity-value {
+      padding: 0 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 12px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .remove-btn:hover {
+      color: #ff5e5e;
+    }
+
+    .cart-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-color);
+      background-color: rgba(9, 8, 13, 0.4);
+    }
+
+    .cart-summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    .cart-summary-total {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .btn-checkout {
+      display: block;
+      width: 100%;
+      background-color: var(--success);
+      color: #051d0f;
+      text-align: center;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 16px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn-checkout:hover {
+      opacity: 0.95;
+    }
+
+    .btn-checkout:active {
+      transform: scale(0.98);
+    }
+
+    /* OVERLAY DEL CARRITO */
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: none;
+    }
+
+    .cart-overlay.active {
+      display: block;
+    }
+
+    /* BOTÓN FLOTANTE WHATSAPP (CON ESTADO ONLINE VERIFICADO) */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+      z-index: 90;
+      text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-status-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background-color: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      color: #39db80;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 10px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #39db80;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.8; }
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .map-container {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <header class="header-nav">
+    <div class="container header-container">
+      <a href="#" class="logo">Estilo <span>Creativo</span></a>
+      <button class="nav-cart-trigger" id="cart-trigger">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path></svg>
+        Mi Carrito
+        <span class="cart-count-badge" id="cart-badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <h1>Letreros Publicitarios y <span>Diseño Gráfico</span> de Impacto</h1>
+      <p>Eleva el profesionalismo de tu marca con nuestros servicios estrella diseñados para destacar tu negocio en el mercado de manera inmediata.</p>
+    </div>
+  </section>
+
+  <!-- CATALOGO DE PRODUCTOS -->
+  <section class="products-section">
+    <div class="container">
+      <h2 class="section-title">Nuestros Servicios <span>Estrella</span></h2>
+      <div class="products-grid" id="products-container">
+        <!-- Generación dinámica de productos de manera limpia -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE UBICACIÓN & CONTACTO -->
+  <section class="info-section">
+    <div class="container info-grid">
+      <div class="info-content">
+        <h2>¿Listo para dar el siguiente paso?</h2>
+        <p>Visítanos en nuestra oficina técnica o contáctanos directamente para coordinar los detalles de tus impresiones y diseños a medida.</p>
+        
+        <div class="info-detail-item">
+          <div class="info-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          </div>
+          <div class="info-text">
+            <h4>Nuestra Ubicación</h4>
+            <p>Santa Cruz de la Sierra, Bolivia</p>
+          </div>
+        </div>
+
+        <div class="info-detail-item">
+          <div class="info-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          </div>
+          <div class="info-text">
+            <h4>Teléfono de Contacto</h4>
+            <p>WhatsApp: +591 79015003</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <div class="map-placeholder">
+          <svg width="40" height="40" fill="none" stroke="var(--primary)" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom: 12px;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.446l-6.002-3.001a1.125 1.125 0 00-.998 0L2.25 18.156V6.157m19.5 11.999l-6-3.001a1.125 1.125 0 00-.998 0L6.75 16.157m13.5-11.999l-6 3.001a1.125 1.125 0 00-.998 0L2.25 4.157m19.5 11.999V6.157a1.125 1.125 0 00-.73-1.05l-6-2.25a1.125 1.125 0 00-1.04 0l-6 2.25a1.125 1.125 0 00-.73 1.05v12a1.125 1.125 0 00.73 1.05l6 2.25a1.125 1.125 0 001.04 0l6-2.25a1.125 1.125 0 00.73-1.05z"></path></svg>
+          <h3 style="font-weight: 700; margin-bottom: 8px;">Dirección Física Registrada</h3>
+          <p style="color: var(--text-muted); font-size: 14px; max-width: 320px;">Accede al mapa interactivo y llega sin contratiempos a nuestro taller gráfico.</p>
+          <a href="https://maps.app.goo.gl/bPF9qC8RAwBArutZ6" target="_blank" class="btn-map">
+            Ver en Google Maps
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRITO DE COMPRA LATERAL (SHOPPING DRAWER) -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>
+        <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path></svg>
+        Tu pedido
+      </h3>
+      <button class="cart-close" id="cart-close">&times;</button>
+    </div>
+    
+    <div class="cart-items-container" id="cart-items-container">
+      <!-- Se llenará dinámicamente -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span>Total:</span>
+        <span class="cart-summary-total" id="cart-total-value">0 Bs</span>
