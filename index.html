@@ -221,10 +221,45 @@
       padding: 4px 10px;
       border-radius: 50px;
       letter-spacing: 0.5px;
+      z-index: 10;
+    }
+
+    .product-image-container {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #121212 0%, #070707 100%);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.06);
+    }
+
+    .product-placeholder-icon {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.05) 0%, rgba(10, 10, 10, 0.8) 100%);
     }
 
     .product-details {
-      margin-top: 12px;
+      margin-top: 4px;
     }
 
     .product-title {
@@ -794,46 +829,88 @@
       const products = [
         {
           id: 'letrero-luminoso',
-          tag: 'Más vendido',
-          title: 'Letrero Luminoso LED',
-          description: 'Letreros con iluminación LED de bajo consumo, ideales para fachadas y locales comerciales.',
-          price: 850
+          tag: 'Destacado',
+          title: 'Letrero Luminoso',
+          description: 'Diseño y fabricación de letreros luminosos profesionales y personalizados.',
+          price: 850,
+          image: 'images/letrero-luminoso.jfif',
+          unit: 'diferencial'
         },
         {
-          id: 'banner-lona',
-          tag: 'Exterior',
-          title: 'Banner en Lona',
-          description: 'Impresión de alta resolución en lona vinílica, resistente al sol y la lluvia.',
-          price: 180
+          id: 'letrero-bastidor',
+          tag: 'Estructuras',
+          title: 'Letrero Bastidor',
+          description: 'Letreros con estructuras de bastidor de alta resistencia para exteriores.',
+          price: 450,
+          image: 'images/letrero-bastidor.jfif',
+          unit: 'diferencial'
         },
         {
-          id: 'vinilo-vehicular',
-          tag: 'Publicidad móvil',
-          title: 'Rotulado Vehicular',
-          description: 'Diseño e instalación de vinil adhesivo para vehículos particulares o de empresa.',
-          price: 950
+          id: 'microperforado',
+          tag: 'Personalizado',
+          title: 'Microperforado Personalizado',
+          description: 'Vinilos microperforados para ventanas, vidrios y vehículos con paso de luz.',
+          price: 150,
+          image: 'images/microperforado.jfif',
+          unit: 'diferencial'
+        },
+        {
+          id: 'adhesivo-personalizado',
+          tag: 'Decoración/Branding',
+          title: 'Adhesivos Personalizados',
+          description: 'Adhesivos y stickers personalizados de alta calidad y durabilidad.',
+          price: 80,
+          image: 'images/adhesivo.jfif',
+          unit: 'diferencial'
+        },
+        {
+          id: 'volantes-1-4',
+          tag: 'Imprenta',
+          title: 'Volantes 1/4 Oficio',
+          description: 'Mil unidades impresas de volantes tamaño 1/4 oficio de alta calidad.',
+          price: 350,
+          image: ''
+        },
+        {
+          id: 'volantes-1-2',
+          tag: 'Imprenta',
+          title: 'Volantes 1/2 Oficio',
+          description: 'Mil unidades impresas de volantes tamaño 1/2 oficio de excelente acabado.',
+          price: 450,
+          image: ''
         },
         {
           id: 'tarjetas-presentacion',
-          tag: 'Imprenta',
+          tag: 'Empresarial',
           title: 'Tarjetas de Presentación',
-          description: 'Pack de 500 tarjetas full color, papel couché de 300 gr, acabado mate o brillante.',
-          price: 120
+          description: '1000 unidades de tarjetas de presentación elegantes y profesionales.',
+          price: 190,
+          image: ''
         },
         {
-          id: 'diseno-logo',
-          tag: 'Identidad de marca',
+          id: 'diseno-logotipo',
+          tag: 'Profesional',
           title: 'Diseño de Logotipo',
-          description: 'Creación de identidad visual con 3 propuestas de logo y manual de uso básico.',
-          price: 400
+          description: 'Diseño profesional en alta calidad, personalizado y vectorizado.',
+          price: 99,
+          image: ''
         },
         {
-          id: 'gigantografia',
-          tag: 'Gran formato',
-          title: 'Gigantografía',
-          description: 'Impresión de gran formato en lona o backlight para vallas y eventos.',
-          price: 60,
-          unit: 'm²'
+          id: 'diseno-flayers',
+          tag: 'Diseño',
+          title: 'Diseño de Flyers',
+          description: 'Diseño creativo e impactante de flyers para promocionar tus eventos o negocio.',
+          price: 35,
+          image: ''
+        },
+        {
+          id: 'banners',
+          tag: 'Gran Formato',
+          title: 'Banners',
+          description: 'Impresión de banners de alta calidad para todo tipo de eventos y publicidad.',
+          price: 120,
+          unit: 'diferencial',
+          image: ''
         }
       ];
 
@@ -855,19 +932,48 @@
       // RENDER DE PRODUCTOS
       // ------------------------------------------------------------
       function renderProducts() {
-        productsContainer.innerHTML = products.map((p) => `
-          <div class="product-card">
-            <span class="product-tag">${p.tag}</span>
-            <div class="product-details">
-              <h3 class="product-title">${p.title}</h3>
-              <p class="product-description">${p.description}</p>
+        productsContainer.innerHTML = products.map((p) => {
+          let imageHtml = '';
+          if (p.image) {
+            imageHtml = `
+              <div class="product-image-container">
+                <img src="${p.image}" alt="${p.title}" class="product-image" loading="lazy">
+              </div>
+            `;
+          } else {
+            // Un degradado estético con un icono svg personalizado según el tipo de servicio
+            let iconSvg = '';
+            if (p.id.includes('volantes') || p.id.includes('tarjetas')) {
+              iconSvg = `<svg width="36" height="36" fill="none" stroke="var(--primary)" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path></svg>`;
+            } else if (p.id.includes('diseno')) {
+              iconSvg = `<svg width="36" height="36" fill="none" stroke="var(--primary)" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122l9.37-9.37a2.121 2.121 0 113 3l-9.37 9.37a4.5 4.5 0 01-1.697 1.096l-3.2 1.067 1.067-3.2a4.5 4.5 0 011.096-1.697z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 5.25l4 4"></path></svg>`;
+            } else {
+              iconSvg = `<svg width="36" height="36" fill="none" stroke="var(--primary)" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.9 2.9m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path></svg>`;
+            }
+            imageHtml = `
+              <div class="product-image-container">
+                <div class="product-placeholder-icon">
+                  ${iconSvg}
+                </div>
+              </div>
+            `;
+          }
+
+          return `
+            <div class="product-card">
+              <span class="product-tag">${p.tag}</span>
+              ${imageHtml}
+              <div class="product-details">
+                <h3 class="product-title">${p.title}</h3>
+                <p class="product-description">${p.description}</p>
+              </div>
+              <div class="product-footer">
+                <span class="product-price">${p.price}<span> Bs${p.unit ? ' / ' + p.unit : ''}</span></span>
+                <button class="btn-add" data-id="${p.id}">Agregar</button>
+              </div>
             </div>
-            <div class="product-footer">
-              <span class="product-price">${p.price}<span> Bs${p.unit ? ' / ' + p.unit : ''}</span></span>
-              <button class="btn-add" data-id="${p.id}">Agregar</button>
-            </div>
-          </div>
-        `).join('');
+          `;
+        }).join('');
       }
 
       // ------------------------------------------------------------
