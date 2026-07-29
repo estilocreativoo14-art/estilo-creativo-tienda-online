@@ -35,15 +35,14 @@ microperforado personalizado
 cuando el cliente salude o mande el primer  mensaje ofreceele los servicios que realizamos 
 posteriormente una ves que el cliente decida que servicios nececita le brindaras mas información 
 
-volantes: tamaño 1/4 oficio mil unidades 350 Bs y 1/2 oficio mil unidades 450Bs
-Tarjetas de presentación 1000 unidades 
-190Bs
+volantes: tamaño 1/4 oficio mil unidades y 1/2 oficio mil unidades (precio a cotizar/diferencial)
+Tarjetas de presentación 1000 unidades (precio a cotizar/diferencial)
 
 
-Banners: precio diferencial pediir las medidas en centimetros o metros del tamaño que desea comotambien 
+Banners: precio diferencial pedir las medidas en centimetros o metros del tamaño que desea comotambien
 Letreros publicitarios precio diferencial pedir las medidas en centimetros o metros del tamaño que desea 
-Diseño de logotipo valor 99Bs disño profesional en alta calidad personalizado y vectorizado 
-Diseño de flayers valor 35 Bs
+Diseño de logotipo valor (precio a cotizar/diferencial) disño profesional en alta calidad personalizado y vectorizado
+Diseño de flayers valor (precio a cotizar/diferencial)
 Adhesivos personalizados precio diferencial pedir las medidas en centímetros o metros del tamaño que desea 
 microperforado personalizado precio diferencial pedir las medidas en centímetros o metros del tamaño que desea 
 
