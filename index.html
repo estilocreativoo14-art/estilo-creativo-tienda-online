@@ -809,7 +809,7 @@
     <div class="cart-footer">
       <div class="cart-summary-row">
         <span>Total:</span>
-        <span class="cart-summary-total" id="cart-total-value">0 Bs</span>
+        <span class="cart-summary-total" id="cart-total-value">A cotizar</span>
       </div>
       <button class="btn-checkout" id="btn-checkout" disabled>Finalizar pedido por WhatsApp</button>
     </div>
@@ -832,43 +832,34 @@
           tag: 'Destacado',
           title: 'Letrero Luminoso',
           description: 'Diseño y fabricación de letreros luminosos profesionales y personalizados.',
-          price: 850,
-          image: 'images/letrero-luminoso.jfif',
-          unit: 'diferencial'
+          image: 'images/letrero-luminoso.jfif'
         },
         {
           id: 'letrero-bastidor',
           tag: 'Estructuras',
           title: 'Letrero Bastidor',
           description: 'Letreros con estructuras de bastidor de alta resistencia para exteriores.',
-          price: 450,
-          image: 'images/letrero-bastidor.jfif',
-          unit: 'diferencial'
+          image: 'images/letrero-bastidor.jfif'
         },
         {
           id: 'microperforado',
           tag: 'Personalizado',
           title: 'Microperforado Personalizado',
           description: 'Vinilos microperforados para ventanas, vidrios y vehículos con paso de luz.',
-          price: 150,
-          image: 'images/microperforado.jfif',
-          unit: 'diferencial'
+          image: 'images/microperforado.jfif'
         },
         {
           id: 'adhesivo-personalizado',
           tag: 'Decoración/Branding',
           title: 'Adhesivos Personalizados',
           description: 'Adhesivos y stickers personalizados de alta calidad y durabilidad.',
-          price: 80,
-          image: 'images/adhesivo.jfif',
-          unit: 'diferencial'
+          image: 'images/adhesivo.jfif'
         },
         {
           id: 'volantes-1-4',
           tag: 'Imprenta',
           title: 'Volantes 1/4 Oficio',
           description: 'Mil unidades impresas de volantes tamaño 1/4 oficio de alta calidad.',
-          price: 350,
           image: ''
         },
         {
@@ -876,7 +867,6 @@
           tag: 'Imprenta',
           title: 'Volantes 1/2 Oficio',
           description: 'Mil unidades impresas de volantes tamaño 1/2 oficio de excelente acabado.',
-          price: 450,
           image: ''
         },
         {
@@ -884,7 +874,6 @@
           tag: 'Empresarial',
           title: 'Tarjetas de Presentación',
           description: '1000 unidades de tarjetas de presentación elegantes y profesionales.',
-          price: 190,
           image: ''
         },
         {
@@ -892,7 +881,6 @@
           tag: 'Profesional',
           title: 'Diseño de Logotipo',
           description: 'Diseño profesional en alta calidad, personalizado y vectorizado.',
-          price: 99,
           image: ''
         },
         {
@@ -900,7 +888,6 @@
           tag: 'Diseño',
           title: 'Diseño de Flyers',
           description: 'Diseño creativo e impactante de flyers para promocionar tus eventos o negocio.',
-          price: 35,
           image: ''
         },
         {
@@ -908,8 +895,6 @@
           tag: 'Gran Formato',
           title: 'Banners',
           description: 'Impresión de banners de alta calidad para todo tipo de eventos y publicidad.',
-          price: 120,
-          unit: 'diferencial',
           image: ''
         }
       ];
@@ -967,8 +952,7 @@
                 <h3 class="product-title">${p.title}</h3>
                 <p class="product-description">${p.description}</p>
               </div>
-              <div class="product-footer">
-                <span class="product-price">${p.price}<span> Bs${p.unit ? ' / ' + p.unit : ''}</span></span>
+              <div class="product-footer" style="justify-content: flex-end;">
                 <button class="btn-add" data-id="${p.id}">Agregar</button>
               </div>
             </div>
@@ -1008,21 +992,18 @@
               <p>Tu carrito está vacío</p>
             </div>
           `;
-          cartTotalValue.textContent = formatBs(0);
+          cartTotalValue.textContent = 'A cotizar';
           btnCheckout.disabled = true;
           return;
         }
 
-        let total = 0;
         cartItemsContainer.innerHTML = entries.map(([id, qty]) => {
           const product = products.find((p) => p.id === id);
-          const subtotal = product.price * qty;
-          total += subtotal;
           return `
             <div class="cart-item">
               <div class="cart-item-details">
                 <div class="cart-item-title">${product.title}</div>
-                <div class="cart-item-price">${formatBs(subtotal)}</div>
+                <div class="cart-item-price">A cotizar</div>
                 <div class="cart-item-actions">
                   <div class="quantity-selector">
                     <button class="quantity-btn" data-action="decrease" data-id="${id}" aria-label="Disminuir cantidad">-</button>
@@ -1036,23 +1017,20 @@
           `;
         }).join('');
 
-        cartTotalValue.textContent = formatBs(total);
+        cartTotalValue.textContent = 'A cotizar';
         btnCheckout.disabled = false;
       }
 
       function buildWhatsappMessage() {
         const entries = Object.entries(cart);
-        let total = 0;
         const lines = entries.map(([id, qty]) => {
           const product = products.find((p) => p.id === id);
-          const subtotal = product.price * qty;
-          total += subtotal;
-          return `- ${product.title} x${qty}: ${formatBs(subtotal)}`;
+          return `- ${product.title} x${qty}`;
         });
         const message = [
-          'Hola, quisiera hacer el siguiente pedido:',
+          'Hola, quisiera cotizar el siguiente pedido:',
           ...lines,
-          `Total: ${formatBs(total)}`
+          'Total: A cotizar'
         ].join('\n');
         return encodeURIComponent(message);
       }
