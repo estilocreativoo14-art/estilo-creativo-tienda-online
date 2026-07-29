@@ -10,18 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* VARIABLES DE MARCA: Negro & Rojo (Sustentado por la petición del usuario) */
+    /* VARIABLES DE MARCA: Negro & Azul (Sustentado por la petición del usuario) */
     :root {
       --bg-dark: #0a0a0a;
       --bg-card: #141414;
-      --primary: #e50914;
-      --primary-hover: #ff3333;
-      --accent: #ff9999;
+      --primary: #0066ff;
+      --primary-hover: #3385ff;
+      --accent: #99c2ff;
       --text-main: #f3f0f7;
       --text-muted: #9e9aa8;
       --border-color: #2d2d2d;
       --success: #39db80;
-      --shadow-color: rgba(229, 9, 20, 0.15);
+      --shadow-color: rgba(0, 102, 255, 0.15);
       --font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
@@ -143,7 +143,7 @@
       transform: translateX(-50%);
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle, rgba(229, 9, 20, 0.15) 0%, rgba(9, 8, 13, 0) 70%);
+      background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, rgba(9, 8, 13, 0) 70%);
       pointer-events: none;
     }
 
@@ -207,14 +207,14 @@
     .product-card:hover {
       transform: translateY(-5px);
       border-color: var(--primary);
-      box-shadow: 0 10px 30px rgba(229, 9, 20, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 102, 255, 0.08);
     }
 
     .product-tag {
       position: absolute;
       top: 16px;
       right: 16px;
-      background: rgba(229, 9, 20, 0.15);
+      background: rgba(0, 102, 255, 0.15);
       color: var(--accent);
       font-size: 11px;
       font-weight: 700;
@@ -255,7 +255,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(229, 9, 20, 0.05) 0%, rgba(10, 10, 10, 0.8) 100%);
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(10, 10, 10, 0.8) 100%);
     }
 
     .product-details {
@@ -353,8 +353,8 @@
     }
 
     .info-icon {
-      background: rgba(229, 9, 20, 0.1);
-      border: 1px solid rgba(229, 9, 20, 0.2);
+      background: rgba(0, 102, 255, 0.1);
+      border: 1px solid rgba(0, 102, 255, 0.2);
       border-radius: 12px;
       padding: 12px;
       color: var(--accent);
