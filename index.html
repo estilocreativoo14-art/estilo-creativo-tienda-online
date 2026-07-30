@@ -285,19 +285,6 @@
       padding-top: 16px;
     }
 
-    .product-price {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--text-main);
-    }
-
-    .product-price span {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--accent);
-      margin-left: 2px;
-    }
-
     .btn-add {
       background-color: var(--primary);
       color: white;
@@ -910,8 +897,6 @@
       const cartItemsContainer = document.getElementById('cart-items-container');
       const cartTotalValue = document.getElementById('cart-total-value');
       const btnCheckout = document.getElementById('btn-checkout');
-
-      const formatBs = (value) => `${value.toLocaleString('es-BO')} Bs`;
 
       // ------------------------------------------------------------
       // RENDER DE PRODUCTOS

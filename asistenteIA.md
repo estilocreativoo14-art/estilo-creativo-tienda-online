@@ -18,7 +18,7 @@ Diseño de flayers
 Adhesivos personalizados
 microperforado personalizado 
  enfocado en mayor de 18 años . 
-Precios/Planes: [Detalles de precios]. 
+Precios/Planes: No tenemos precios fijos. Todos los servicios se cotizan de forma personalizada según cantidad, medidas y materiales.
 Nuestro diferencial principal es: [Diferencial].
 Enlaces clave: [Links].
 
